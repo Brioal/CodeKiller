@@ -4,4 +4,6 @@
 ### 1.生成SpringBoot多环境配置文件
 ![](https://github.com/Brioal/CodeKiller/blob/master/gifs/多环境生成.gif)
 ### 2.切换SpringBoot当前环境
+![](https://github.com/Brioal/CodeKiller/blob/master/gifs/多环境切换.gif)
 ### 3.生成Mysql默认连接配置
+![](https://github.com/Brioal/CodeKiller/blob/master/gifs/mysql配置.gif)
