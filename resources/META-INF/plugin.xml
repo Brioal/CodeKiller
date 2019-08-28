@@ -1,0 +1,40 @@
+<idea-plugin>
+    <id>brioal.codekiller</id>
+    <name>CodeKiller</name>
+    <version>1.0</version>
+    <vendor email="brioal@foxmail.com" url="http://www.brioal.com">brioal</vendor>
+
+    <description>代码生成器,以及各种生成代码,集成环境的工具,自动实现Service继承类,生成Setter方法,等</description>
+
+    <change-notes>无</change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="brioal.codekiller.properties" class="SetProperties" text="生成Springboot多环境配置"
+                description="生成Springboot多环境配置">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+        <action id="brioal.codekiller.properties_change" class="ChangeProperties" text="修改Springboot当前环境配置"
+                description="修改Springboot当前环境配置">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+        <action id="brioal.codekiller.mysql_setting" class="MysqlSetting" text="生成Mysql连接配置"
+                description="生成Mysql连接配置">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
