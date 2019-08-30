@@ -35,6 +35,10 @@
                 description="生成Mysql连接配置">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
         </action>
+        <action id="brioal.codekiller.column_default_setting" class="ValueDefaultGenerator" text="设置数据库默认值"
+                description="设置数据库默认值">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
     </actions>
 
 </idea-plugin>
