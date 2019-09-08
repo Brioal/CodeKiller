@@ -49,8 +49,11 @@ public class ValueDefaultGenerator extends AnAction {
             case "Integer":
                 content = "@Column(columnDefinition = \"int default 0\")\n";
                 break;
-            case "Double":
+            case "Boolean":
                 content = "@Column(columnDefinition = \"tinyint default 0\")\n";
+                break;
+            case "Double":
+                content = "@Column(columnDefinition = \"double default 0\")\n";
                 break;
             case "String":
                 content = "@Column(columnDefinition = \"TEXT\")\n";
