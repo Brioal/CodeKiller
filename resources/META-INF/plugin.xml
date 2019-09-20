@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>brioal.codekiller</id>
     <name>CodeKiller</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <vendor email="brioal@foxmail.com" url="http://www.brioal.com">brioal</vendor>
 
     <description>代码生成器,以及各种生成代码,集成环境的工具,自动实现Service继承类,生成Setter方法,等</description>
@@ -37,6 +37,10 @@
         </action>
         <action id="brioal.codekiller.column_default_setting" class="ValueDefaultGenerator" text="设置数据库默认值"
                 description="设置数据库默认值">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+        <action id="brioal.codekiller.service_impl_generator" class="ServiceImplGenerator" text="生成Service继承类"
+                description="生成Service继承类">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
         </action>
     </actions>
