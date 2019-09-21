@@ -30,7 +30,7 @@ public class AutoWire extends AnAction {
         System.out.println("成员变量名:" + valiableClassName);
         // 生成Setter方法
         StringBuffer buffer = new StringBuffer();
-        buffer.append("\t@Autowired\n" +
+        buffer.append("\n\t@Autowired\n" +
                 "    public void set"+className+"("+className+ " "+valiableClassName+") {\n" +
                 "        this."+valiableClassName+" = "+valiableClassName+";\n" +
                 "    }");
