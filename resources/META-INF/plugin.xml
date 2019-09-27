@@ -49,6 +49,9 @@
         <action id="brioal.codekiller.autowire" class="AutoWire" text="Autowired" description="Autowired">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
         </action>
+        <action id="brioal.codekiller.CommonService" class="CommonServiceGenerator" text="生成CommonService文件" description="生成CommonService文件">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
     </actions>
 
 </idea-plugin>
