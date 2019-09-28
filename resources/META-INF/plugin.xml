@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>brioal.codekiller</id>
     <name>CodeKiller</name>
-    <version>2.0</version>
+    <version>2.1</version>
     <vendor email="brioal@foxmail.com" url="http://www.brioal.com">brioal</vendor>
 
     <description>代码生成器,以及各种生成代码,集成环境的工具,自动实现Service继承类,生成Setter方法,等</description>

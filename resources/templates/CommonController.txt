@@ -49,6 +49,7 @@ public class $bean_with_out_bean$Controller {
 
     @ApiOperation(value = "删除")
     @DeleteMapping("/{id}")
+     @PermissionCheck(ADMIN_ALLOW = true)
     public ResultBean delete(@PathVariable int id) {
         $bean_with_out_bean_low_case$Service.delete(id);
         return ResultBean.returnSuccess(null);

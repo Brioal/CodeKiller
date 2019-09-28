@@ -1,5 +1,6 @@
 package util;
 
+import com.intellij.ide.util.DirectoryUtil;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.vfs.VirtualFileManager;
@@ -39,13 +40,25 @@ public class LocalFileUtil {
 
     /**
      * 新建一个文件并且写入内容
+     *
      * @param currentDir
      * @param fileName
      * @param content
      */
-    public static void writeFile(PsiDirectory currentDir, String fileName, String content) {
+    public static void writeFile(PsiDirectory currentDir, String subName, String fileName, String content) {
         // 新建tool文件
-        File toolsFile = new File(currentDir.getVirtualFile().getCanonicalPath() + File.separator + fileName);
+        PsiDirectory targetDir = null;
+        if (subName != null) {
+            PsiDirectory implDir = currentDir.findSubdirectory(subName);
+            if (implDir == null) {
+                // 创建文件夹
+                implDir = DirectoryUtil.createSubdirectories(subName, currentDir, ".");
+            }
+            targetDir = implDir;
+        } else {
+            targetDir = currentDir;
+        }
+        File toolsFile = new File(targetDir.getVirtualFile().getCanonicalPath() + File.separator + fileName);
         if (toolsFile.exists()) {
             Messages.showDialog("文件已存在", "错误", new String[]{"好的"}, 0, null);
             return;

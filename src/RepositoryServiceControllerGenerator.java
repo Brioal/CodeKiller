@@ -71,10 +71,10 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         controllerContent = controllerContent.replaceAll("\\$package_name\\$", packageName);
         controllerContent = controllerContent.replaceAll("\\$url\\$", urlName);
 
-        LocalFileUtil.writeFile(currentDir, repositoryName, repositoryContent);
-        LocalFileUtil.writeFile(currentDir, serviceName, serviceContent);
-        LocalFileUtil.writeFile(currentDir, serviceImplName, serviceImplContent);
-        LocalFileUtil.writeFile(currentDir, controllerName, controllerContent);
+        LocalFileUtil.writeFile(currentDir, "temp", repositoryName, repositoryContent);
+        LocalFileUtil.writeFile(currentDir, "temp", serviceName, serviceContent);
+        LocalFileUtil.writeFile(currentDir, "temp", serviceImplName, serviceImplContent);
+        LocalFileUtil.writeFile(currentDir, "temp", controllerName, controllerContent);
 
     }
 
