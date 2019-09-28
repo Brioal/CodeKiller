@@ -3,7 +3,7 @@
   <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="48" y="54" width="436" height="297"/>
+      <xy x="48" y="54" width="803" height="297"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -49,23 +49,130 @@
           </grid>
         </children>
       </grid>
-      <grid id="e3588" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="e3588" layout-manager="GridBagLayout">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="true"/>
         </constraints>
-        <properties/>
+        <properties>
+          <alignmentX value="0.5"/>
+        </properties>
         <border type="none"/>
         <children>
-          <component id="b9082" class="javax.swing.JCheckBox" binding="updateToolsCheckBox" default-binding="true">
-            <constraints/>
+          <component id="d9427" class="javax.swing.JCheckBox" binding="codeUtilCheckBox" default-binding="true">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
             <properties>
-              <text value="UpdateTool.java"/>
+              <text value="CodeUtil"/>
+            </properties>
+          </component>
+          <component id="b9082" class="javax.swing.JCheckBox" binding="updateToolsCheckBox" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="DoubleUtil"/>
             </properties>
           </component>
           <component id="c287c" class="javax.swing.JCheckBox" binding="integerUtilCheckBox" default-binding="true">
-            <constraints/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
             <properties>
               <text value="IntegerUtil"/>
+            </properties>
+          </component>
+          <component id="be5b3" class="javax.swing.JCheckBox" binding="listUtilCheckBox" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="ListUtil"/>
+            </properties>
+          </component>
+          <component id="e9db" class="javax.swing.JCheckBox" binding="updateToolCheckBox" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="UpdateTool"/>
+            </properties>
+          </component>
+          <component id="2cfbd" class="javax.swing.JCheckBox" binding="textUtilCheckBox" default-binding="true">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="TextUtil"/>
+            </properties>
+          </component>
+          <component id="9c996" class="javax.swing.JCheckBox" binding="jpaExampleUtilCheckBox" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="JpaExampleUtil"/>
+            </properties>
+          </component>
+          <component id="8103b" class="javax.swing.JCheckBox" binding="passwordUtilCheckBox" default-binding="true">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="PasswordUtil"/>
+            </properties>
+          </component>
+          <component id="d9560" class="javax.swing.JCheckBox" binding="randomUtilCheckBox" default-binding="true">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="RandomUtil"/>
+            </properties>
+          </component>
+          <component id="24ee6" class="javax.swing.JCheckBox" binding="reviewDateFormatUtlCheckBox" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="ReviewDateFormatUtl"/>
+            </properties>
+          </component>
+          <component id="2af98" class="javax.swing.JCheckBox" binding="reviewFileUtilsCheckBox" default-binding="true">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="ReviewFileUtils"/>
+            </properties>
+          </component>
+          <component id="4a473" class="javax.swing.JCheckBox" binding="sizeConverterCheckBox" default-binding="true">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="SizeConverter"/>
+            </properties>
+          </component>
+          <component id="3c122" class="javax.swing.JCheckBox" binding="tokenUtilsCheckBox" default-binding="true">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="TokenUtils"/>
             </properties>
           </component>
         </children>

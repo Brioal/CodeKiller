@@ -1,0 +1,13 @@
+$package_name$
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
+
+/**
+ * email:brioal@foxmail.com
+ * github:https://github.com/Brioal
+ */
+@Repository
+public interface $bean_with_out_bean$Repository extends JpaRepository<$bean$, Integer>, JpaSpecificationExecutor<$bean$> {
+
+}

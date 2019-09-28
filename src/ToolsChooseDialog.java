@@ -10,6 +10,17 @@ public class ToolsChooseDialog extends JDialog {
     private JButton buttonCancel;
     private JCheckBox updateToolsCheckBox;
     private JCheckBox integerUtilCheckBox;
+    private JCheckBox listUtilCheckBox;
+    private JCheckBox updateToolCheckBox;
+    private JCheckBox codeUtilCheckBox;
+    private JCheckBox jpaExampleUtilCheckBox;
+    private JCheckBox textUtilCheckBox;
+    private JCheckBox passwordUtilCheckBox;
+    private JCheckBox randomUtilCheckBox;
+    private JCheckBox reviewDateFormatUtlCheckBox;
+    private JCheckBox reviewFileUtilsCheckBox;
+    private JCheckBox sizeConverterCheckBox;
+    private JCheckBox tokenUtilsCheckBox;
 
     private OnCheckBoxChooseListener onCheckBoxChooseListener;
 
@@ -56,7 +67,21 @@ public class ToolsChooseDialog extends JDialog {
 
     private void onOK() {
         // add your code here
-        onCheckBoxChooseListener.done(new boolean[]{updateToolsCheckBox.isSelected(), integerUtilCheckBox.isSelected()});
+        onCheckBoxChooseListener.done(new boolean[]{
+                updateToolsCheckBox.isSelected(),
+                integerUtilCheckBox.isSelected(),
+                listUtilCheckBox.isSelected(),
+                updateToolCheckBox.isSelected(),
+                codeUtilCheckBox.isSelected(),
+                jpaExampleUtilCheckBox.isSelected(),
+                textUtilCheckBox.isSelected(),
+                passwordUtilCheckBox.isSelected(),
+                randomUtilCheckBox.isSelected(),
+                reviewDateFormatUtlCheckBox.isSelected(),
+                reviewFileUtilsCheckBox.isSelected(),
+                sizeConverterCheckBox.isSelected(),
+                tokenUtilsCheckBox.isSelected()
+        });
         dispose();
     }
 

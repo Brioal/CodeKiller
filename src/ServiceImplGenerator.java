@@ -58,20 +58,6 @@ public class ServiceImplGenerator extends AnAction {
                 if (!modifierList.textMatches("Service")) {
                     psiClass.getModifierList().addAnnotation("Service");
                 }
-                // 获取父类方法列表 todo
-//                PsiMethod[] parentMethods = parentClass.getAllMethods();
-//                // 循环实现父类方法
-//                for (PsiMethod method : parentMethods) {
-//                    // 判断是否存在
-//                    PsiMethod exitMethod = psiClass.findMethodBySignature(method, false);
-//                    if (exitMethod == null) {
-//                        // 不存在
-//                        psiClass.add(method);
-//                    } else  {
-//                        // 存在，不管
-//
-//                    }
-//                }
 
             }
         });
