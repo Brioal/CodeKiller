@@ -52,7 +52,11 @@ public class TextUtil {
                 // 大写
                 // 转换小写
                 char lowCase = Character.toLowerCase(ch);
-                buffer.append(lowCase + "_");
+                if (i == 0) {
+                    buffer.append(lowCase);
+                } else {
+                    buffer.append("_" + lowCase);
+                }
             } else {
                 buffer.append(ch);
             }
