@@ -21,6 +21,14 @@ public class ToolsChooseDialog extends JDialog {
     private JCheckBox reviewFileUtilsCheckBox;
     private JCheckBox sizeConverterCheckBox;
     private JCheckBox tokenUtilsCheckBox;
+    private JCheckBox webMvcConfCheckBox;
+    private JCheckBox swagger2ConfigCheckBox;
+    private JCheckBox configCheckBox;
+    private JCheckBox authenticationInterceptorCheckBox;
+    private JCheckBox adminRunnerCheckBox;
+    private JCheckBox currentUserCheckBox;
+    private JCheckBox permissionCheckCheckBox;
+    private JCheckBox fileServiceCheckBox;
 
     private OnCheckBoxChooseListener onCheckBoxChooseListener;
 
@@ -66,7 +74,6 @@ public class ToolsChooseDialog extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
         onCheckBoxChooseListener.done(new boolean[]{
                 updateToolsCheckBox.isSelected(),
                 integerUtilCheckBox.isSelected(),
@@ -80,7 +87,15 @@ public class ToolsChooseDialog extends JDialog {
                 reviewDateFormatUtlCheckBox.isSelected(),
                 reviewFileUtilsCheckBox.isSelected(),
                 sizeConverterCheckBox.isSelected(),
-                tokenUtilsCheckBox.isSelected()
+                tokenUtilsCheckBox.isSelected(),
+                webMvcConfCheckBox.isSelected(),
+                swagger2ConfigCheckBox.isSelected(),
+                configCheckBox.isSelected(),
+                authenticationInterceptorCheckBox.isSelected(),
+                adminRunnerCheckBox.isSelected(),
+                currentUserCheckBox.isSelected(),
+                permissionCheckCheckBox.isSelected(),
+                fileServiceCheckBox.isSelected()
         });
         dispose();
     }

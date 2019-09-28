@@ -28,6 +28,8 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         String classNameLow = TextUtil.changeFirstToLowCase(className);
         // 去除Bean的名称
         String classNameWithOutBean = className.replaceAll("Bean", "");
+        // 地址名称
+        String urlName = TextUtil.changeUpCaseToLowCaseAndLine(classNameWithOutBean);
         //开头小写
         String classNameWithOutBeanWithLowCase = TextUtil.changeFirstToLowCase(classNameWithOutBean);
         // 读取Repository模板
@@ -67,6 +69,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         controllerContent = controllerContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);
         controllerContent = controllerContent.replaceAll("\\$bean_with_out_bean_low_case\\$", classNameWithOutBeanWithLowCase);
         controllerContent = controllerContent.replaceAll("\\$package_name\\$", packageName);
+        controllerContent = controllerContent.replaceAll("\\$url\\$", urlName);
 
         LocalFileUtil.writeFile(currentDir, repositoryName, repositoryContent);
         LocalFileUtil.writeFile(currentDir, serviceName, serviceContent);
