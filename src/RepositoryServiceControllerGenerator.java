@@ -49,7 +49,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         String serviceName = classNameWithOutBean + "Service.java";
         String serviceContent = LocalFileUtil.readTemplatesFileContent("CommonService.txt");
         serviceContent = serviceContent.replaceAll("\\$bean\\$", className);
-        repositoryContent = repositoryContent.replaceAll("\\$bean_low\\$", classNameLow);
+        serviceContent = serviceContent.replaceAll("\\$bean_low\\$", classNameLow);
         serviceContent = serviceContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);
         serviceContent = serviceContent.replaceAll("\\$bean_with_out_bean_low_case\\$", classNameWithOutBeanWithLowCase);
         serviceContent = serviceContent.replaceAll("\\$package_name\\$", packageName);
@@ -57,7 +57,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         String serviceImplName = classNameWithOutBean + "ServiceImpl.java";
         String serviceImplContent = LocalFileUtil.readTemplatesFileContent("CommonServiceImpl.txt");
         serviceImplContent = serviceImplContent.replaceAll("\\$bean\\$", className);
-        repositoryContent = repositoryContent.replaceAll("\\$bean_low\\$", classNameLow);
+        serviceImplContent = serviceImplContent.replaceAll("\\$bean_low\\$", classNameLow);
         serviceImplContent = serviceImplContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);
         serviceImplContent = serviceImplContent.replaceAll("\\$bean_with_out_bean_low_case\\$", classNameWithOutBeanWithLowCase);
         serviceImplContent = serviceImplContent.replaceAll("\\$package_name\\$", packageName);
@@ -65,7 +65,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         String controllerName = classNameWithOutBean + "Controller.java";
         String controllerContent = LocalFileUtil.readTemplatesFileContent("CommonController.txt");
         controllerContent = controllerContent.replaceAll("\\$bean\\$", className);
-        repositoryContent = repositoryContent.replaceAll("\\$bean_low\\$", classNameLow);
+        controllerContent = controllerContent.replaceAll("\\$bean_low\\$", classNameLow);
         controllerContent = controllerContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);
         controllerContent = controllerContent.replaceAll("\\$bean_with_out_bean_low_case\\$", classNameWithOutBeanWithLowCase);
         controllerContent = controllerContent.replaceAll("\\$package_name\\$", packageName);
