@@ -8,13 +8,14 @@ public class ToolsChooseDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JCheckBox updateToolsCheckBox;
+
+    private JCheckBox doubleUtilCheckBox;
     private JCheckBox integerUtilCheckBox;
+    private JCheckBox textUtilCheckBox;
     private JCheckBox listUtilCheckBox;
     private JCheckBox updateToolCheckBox;
     private JCheckBox codeUtilCheckBox;
     private JCheckBox jpaExampleUtilCheckBox;
-    private JCheckBox textUtilCheckBox;
     private JCheckBox passwordUtilCheckBox;
     private JCheckBox randomUtilCheckBox;
     private JCheckBox reviewDateFormatUtlCheckBox;
@@ -29,6 +30,7 @@ public class ToolsChooseDialog extends JDialog {
     private JCheckBox currentUserCheckBox;
     private JCheckBox permissionCheckCheckBox;
     private JCheckBox fileServiceCheckBox;
+    private JCheckBox commonServiceCheckBox;
 
     private OnCheckBoxChooseListener onCheckBoxChooseListener;
 
@@ -75,13 +77,13 @@ public class ToolsChooseDialog extends JDialog {
 
     private void onOK() {
         onCheckBoxChooseListener.done(new boolean[]{
-                updateToolsCheckBox.isSelected(),
+                doubleUtilCheckBox.isSelected(),
                 integerUtilCheckBox.isSelected(),
+                textUtilCheckBox.isSelected(),
                 listUtilCheckBox.isSelected(),
                 updateToolCheckBox.isSelected(),
                 codeUtilCheckBox.isSelected(),
                 jpaExampleUtilCheckBox.isSelected(),
-                textUtilCheckBox.isSelected(),
                 passwordUtilCheckBox.isSelected(),
                 randomUtilCheckBox.isSelected(),
                 reviewDateFormatUtlCheckBox.isSelected(),
@@ -95,7 +97,8 @@ public class ToolsChooseDialog extends JDialog {
                 adminRunnerCheckBox.isSelected(),
                 currentUserCheckBox.isSelected(),
                 permissionCheckCheckBox.isSelected(),
-                fileServiceCheckBox.isSelected()
+                fileServiceCheckBox.isSelected(),
+                commonServiceCheckBox.isSelected()
         });
         dispose();
     }
@@ -107,5 +110,9 @@ public class ToolsChooseDialog extends JDialog {
 
     public static void main(String[] args) {
 
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

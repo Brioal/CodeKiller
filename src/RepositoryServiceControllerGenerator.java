@@ -47,7 +47,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         repositoryContent = repositoryContent.replaceAll("\\$package_name\\$", packageName);
 
         String serviceName = classNameWithOutBean + "Service.java";
-        String serviceContent = LocalFileUtil.readTemplatesFileContent("CommonService.txt");
+        String serviceContent = LocalFileUtil.readTemplatesFileContent("TemplateService.txt");
         serviceContent = serviceContent.replaceAll("\\$bean\\$", className);
         serviceContent = serviceContent.replaceAll("\\$bean_low\\$", classNameLow);
         serviceContent = serviceContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);

@@ -107,6 +107,10 @@ public class CommonServiceGenerator extends AnAction {
                     writeFile(currentDir, "service", "FileServiceImpl.java");
                     writeFile(currentDir, "controller", "FileController.java");
                 }
+                // CommonService.java
+                if (result[21]) {
+                    writeFile(currentDir, "service", "CommonService.java");
+                }
 
             }
         });
