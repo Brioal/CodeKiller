@@ -109,10 +109,9 @@ public class ToolsChooseDialog extends JDialog {
     }
 
     public static void main(String[] args) {
-
+        ToolsChooseDialog toolsChooseDialog = new ToolsChooseDialog();
+        toolsChooseDialog.show();
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
+
 }
