@@ -17,12 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class $bean_with_out_bean$Controller {
 
     private $bean_with_out_bean$Service $bean_with_out_bean_low_case$Service;
-    private FileService fileService;
 
-    @Autowired
-    public void setFileService(FileService fileService) {
-        this.fileService = fileService;
-    }
 
 
     @Autowired
@@ -55,16 +50,7 @@ public class $bean_with_out_bean$Controller {
         return ResultBean.returnSuccess(null);
     }
 
-    @ApiOperation(value = "从excel导入")
-    @PostMapping("/import_from_excel")
-    @PermissionCheck(COMPANY_ALLOW = true)
-    public ResultBean importFromExcel(@RequestParam("file") MultipartFile file) {
-        // 获取品牌实体
-        FileBean fileBean = fileService.saveFile(file, true);
-        // 保存数据
-        $bean_with_out_bean_low_case$Service.importFromExcel(fileBean);
-        return ResultBean.returnSuccess(fileBean);
-    }
+
 
 
 }

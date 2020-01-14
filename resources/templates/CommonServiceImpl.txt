@@ -1,9 +1,6 @@
 $package_name$
 
-import com.xbqm.green.bean.system.FileBean;
-import com.xbqm.green.util.ExampleUtil;
-import com.xbqm.green.util.IntegerUtil;
-import com.xbqm.green.util.UpdateTool;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -59,8 +56,5 @@ public class $bean_with_out_bean$ServiceImpl implements $bean_with_out_bean$Serv
         $bean_with_out_bean_low_case$Repository.deleteById(id);
     }
 
-    @Override
-    public void importFromExcel(FileBean fileBean) {
 
-    }
 }
