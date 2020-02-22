@@ -1,117 +1,75 @@
-import com.intellij.ide.util.DirectoryUtil;
+import bean.GitFileBean;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.*;
-import interfaces.OnCheckBoxChooseListener;
+import interfaces.OnListChooseListener;
+import util.HttpUtils;
 import util.LocalFileUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CommonServiceGenerator extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        // 获取主包文件
-        PsiFile psiFile = e.getData(LangDataKeys.PSI_FILE);
-        // 获取当前文件夹对象
-        PsiDirectory currentDir = psiFile.getContainingDirectory();
-        ToolsChooseDialog dialog = new ToolsChooseDialog();
-        dialog.pack();
-        dialog.setOnCheckBoxChooseListener(new OnCheckBoxChooseListener() {
-            @Override
-            public void done(boolean[] result) {
-                // DoubleUtil.java
-                if (result[0]) {
-                    writeFile(currentDir, "util", "DoubleUtil.java");
-                }
-                // IntegerUtil.java
-                if (result[1]) {
-                    writeFile(currentDir, "util", "IntegerUtil.java");
-                }
-                // TextUtil.java
-                if (result[2]) {
-                    writeFile(currentDir, "util", "TextUtil.java");
-                }
-                // ListUtil.java
-                if (result[3]) {
-                    writeFile(currentDir, "util", "ListUtil.java");
-                }
-                // UpdateTool.java
-                if (result[4]) {
-                    writeFile(currentDir, "util", "UpdateTool.java");
-                }
-                // CodeUtil.java
-                if (result[5]) {
-                    writeFile(currentDir, "util", "CodeUtil.java");
-                }
-                // JpaExampleUtil.java
-                if (result[6]) {
-                    writeFile(currentDir, "util", "JpaExampleUtil.java");
-                }
-                // PasswordUtil.java
-                if (result[7]) {
-                    writeFile(currentDir, "util", "PasswordUtil.java");
-                }
-                // RandomUtil.java
-                if (result[8]) {
-                    writeFile(currentDir, "util", "RandomUtil.java");
-                }
-                // ReviewDateFormatUtl.java
-                if (result[9]) {
-                    writeFile(currentDir, "util", "ReviewDateFormatUtl.java");
-                }
-                // ReviewFileUtils.java
-                if (result[10]) {
-                    writeFile(currentDir, "util", "ReviewFileUtils.java");
-                }
-                // SizeConverter.java
-                if (result[11]) {
-                    writeFile(currentDir, "util", "SizeConverter.java");
-                }
-                // TokenUtils.java
-                if (result[12]) {
-                    writeFile(currentDir, "util", "TokenUtils.java");
-                }
-                // WebMvcConf.java
-                if (result[13]) {
-                    writeFile(currentDir, "config", "WebMvcConf.java");
-                }
-                // WebMvcConf.java
-                if (result[14]) {
-                    writeFile(currentDir, "config", "Swagger2Config.java");
-                }
-                // Config.java
-                if (result[15]) {
-                    writeFile(currentDir, "config", "Config.java");
-                }
-                // AuthenticationInterceptor.java
-                if (result[16]) {
-                    writeFile(currentDir, "config", "AuthenticationInterceptor.java");
-                    writeFile(currentDir, "config", "CurrentUserMethodArgumentResolver.java");
-                }
-                // AdminRunner.java
-                if (result[17]) {
-                    writeFile(currentDir, "config", "AdminRunner.java");
-                }
-                // CurrentUser.java
-                if (result[18]) {
-                    writeFile(currentDir, "injections", "CurrentUser.java");
-                }
-                // PermissionCheck.java
-                if (result[19]) {
-                    writeFile(currentDir, "injections", "PermissionCheck.java");
-                }
-                // FileService.java
-                if (result[20]) {
-                    writeFile(currentDir, "service", "FileService.java");
-                    writeFile(currentDir, "service", "FileServiceImpl.java");
-                    writeFile(currentDir, "controller", "FileController.java");
-                }
-                // CommonService.java
-                if (result[21]) {
-                    writeFile(currentDir, "service", "CommonService.java");
-                }
+        // 读取工具类列表
+        String jsonList = HttpUtils.doGet("https://api.github.com/repos/Brioal/JavaCommon/contents//src/main/java/com/brioal/commonjava");
+        if (jsonList == null) {
+            Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
+            return;
+        }
+        JsonParser jsonParser = new JsonParser();
+        JsonArray jsonArray = jsonParser.parse(jsonList).getAsJsonArray();
+        List<GitFileBean> list = new ArrayList<>();
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject object = jsonArray.get(i).getAsJsonObject();
+            // 名称
+            String name = object.get("name").getAsString();
+            // 类型
+            String type =object.get("type").getAsString();
+            if (!type.equals("file")) {
+                continue;
+            }
+            // 下载地址
+            String downloadFile = object.get("download_url").getAsString();
+            GitFileBean fileBean = new GitFileBean();
+            fileBean.setName(name);
+            fileBean.setDownload_url(downloadFile);
+            list.add(fileBean);
+        }
 
+        System.out.println(jsonList);
+//        // 获取主包文件
+        PsiFile psiFile = e.getData(LangDataKeys.PSI_FILE);
+//        // 获取当前文件夹对象
+        PsiDirectory currentDir = psiFile.getContainingDirectory();
+        ToolsChooseDialog dialog = new ToolsChooseDialog(list);
+        dialog.pack();
+        dialog.setOnListChooseListener(new OnListChooseListener() {
+            @Override
+            public boolean choose(int index) {
+                // 获取选中的文件
+                GitFileBean fileBean = list.get(index);
+                // 写入文件到当前目录,存在则更新,不存在则创建
+                String fileName = fileBean.getName();
+                // 读取文件
+                String downLoadUrl = fileBean.getDownload_url();
+                // 获取数据
+                String content = HttpUtils.doGet(downLoadUrl);
+                if (content == null) {
+                    Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
+                    return false;
+                }
+                LocalFileUtil.writeFile(currentDir, "", fileName, content);
+                Messages.showDialog("下载"+fileName+"成功!", "成功", new String[]{"好的"}, 0, null);
+                return true;
             }
         });
         dialog.setVisible(true);

@@ -1,9 +1,0 @@
-$package_name$
-/**
- * email:brioal@foxmail.com
- * github:https://github.com/Brioal
- */
-public interface $bean_with_out_bean$Service extends CommonService<$bean$> {
-
-
-}

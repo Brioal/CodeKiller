@@ -60,11 +60,9 @@ public class LocalFileUtil {
         }
         File toolsFile = new File(targetDir.getVirtualFile().getCanonicalPath() + File.separator + fileName);
         if (toolsFile.exists()) {
-            Messages.showDialog("文件已存在", "错误", new String[]{"好的"}, 0, null);
-            return;
-        } else {
-            LocalFileUtil.writeFile(toolsFile, content);
+
         }
+        LocalFileUtil.writeFile(toolsFile, content);
         // 刷新文件
         VirtualFileManager.getInstance().syncRefresh();
     }
