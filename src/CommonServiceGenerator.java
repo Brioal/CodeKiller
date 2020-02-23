@@ -20,7 +20,7 @@ public class CommonServiceGenerator extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         // 读取工具类列表
-        String jsonList = HttpUtils.doGet("https://api.github.com/repos/Brioal/JavaCommon/contents//src/main/java/com/brioal/commonjava");
+        String jsonList = HttpUtils.doGet("https://api.github.com/repos/Brioal/JavaCommon/contents/templates");
         if (jsonList == null) {
             Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
             return;
