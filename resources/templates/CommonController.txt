@@ -32,7 +32,7 @@ public class $bean_with_out_bean$Controller {
 
     @ApiOperation(value = "获取列表")
     @PostMapping
-    @PermissionCheck(COMPANY_ALLOW = true)
+    @PermissionCheck(ADMIN_ALLOW = true)
     public ResultBean list(@RequestBody $bean$ $bean_low$) {
         Page<$bean$> page = $bean_with_out_bean_low_case$Service.find($bean_low$);
         return ResultBean.returnPage(page);
@@ -40,7 +40,7 @@ public class $bean_with_out_bean$Controller {
 
     @ApiOperation(value = "保存 新增/修改")
     @PutMapping
-    @PermissionCheck(COMPANY_ALLOW = true)
+    @PermissionCheck(ADMIN_ALLOW = true)
     public ResultBean save(@RequestBody $bean$ $bean_low$) {
         $bean_with_out_bean_low_case$Service.save($bean_low$);
         return ResultBean.returnSuccess(null);
@@ -57,7 +57,7 @@ public class $bean_with_out_bean$Controller {
 
     @ApiOperation(value = "从excel导入")
     @PostMapping("/import_from_excel")
-    @PermissionCheck(COMPANY_ALLOW = true)
+    @PermissionCheck(ADMIN_ALLOW = true)
     public ResultBean importFromExcel(@RequestParam("file") MultipartFile file) {
         // 获取品牌实体
         FileBean fileBean = fileService.saveFile(file, true);
