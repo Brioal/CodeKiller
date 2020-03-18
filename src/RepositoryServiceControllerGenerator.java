@@ -34,7 +34,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         String classNameWithOutBeanWithLowCase = TextUtil.changeFirstToLowCase(classNameWithOutBean);
         // 读取Repository模板
         String repositoryName = classNameWithOutBean + "Repository.java";
-        String repositoryContent = LocalFileUtil.readTemplatesFileContent("CommonRepository.txt");
+        String repositoryContent = LocalFileUtil.readTemplatesFileContent("TemplateRepository.txt");
         if (repositoryContent == null) {
             Messages.showDialog("读取模板文件失败", "错误", new String[]{"好的"}, 0, null);
             return;
@@ -55,7 +55,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         serviceContent = serviceContent.replaceAll("\\$package_name\\$", packageName);
 
         String serviceImplName = classNameWithOutBean + "ServiceImpl.java";
-        String serviceImplContent = LocalFileUtil.readTemplatesFileContent("CommonServiceImpl.txt");
+        String serviceImplContent = LocalFileUtil.readTemplatesFileContent("TemplateServiceImpl.txt");
         serviceImplContent = serviceImplContent.replaceAll("\\$bean\\$", className);
         serviceImplContent = serviceImplContent.replaceAll("\\$bean_low\\$", classNameLow);
         serviceImplContent = serviceImplContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);
@@ -63,7 +63,7 @@ public class RepositoryServiceControllerGenerator extends AnAction {
         serviceImplContent = serviceImplContent.replaceAll("\\$package_name\\$", packageName);
 
         String controllerName = classNameWithOutBean + "Controller.java";
-        String controllerContent = LocalFileUtil.readTemplatesFileContent("CommonController.txt");
+        String controllerContent = LocalFileUtil.readTemplatesFileContent("TemplateController.txt");
         controllerContent = controllerContent.replaceAll("\\$bean\\$", className);
         controllerContent = controllerContent.replaceAll("\\$bean_low\\$", classNameLow);
         controllerContent = controllerContent.replaceAll("\\$bean_with_out_bean\\$", classNameWithOutBean);

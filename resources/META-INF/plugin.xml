@@ -1,12 +1,12 @@
 <idea-plugin>
     <id>brioal.codekiller</id>
     <name>CodeKiller</name>
-    <version>2.5</version>
+    <version>2.7</version>
     <vendor email="brioal@foxmail.com" url="http://www.brioal.com">brioal</vendor>
 
     <description>代码生成器,以及各种生成代码,集成环境的工具,自动实现Service继承类,生成Setter方法,等</description>
 
-    <change-notes>无</change-notes>
+    <change-notes>修改git源</change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="173.0"/>

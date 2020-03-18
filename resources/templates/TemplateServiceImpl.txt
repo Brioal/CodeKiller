@@ -56,8 +56,4 @@ public class $bean_with_out_bean$ServiceImpl implements $bean_with_out_bean$Serv
         $bean_with_out_bean_low_case$Repository.deleteById(id);
     }
 
-    @Override
-    public void importFromExcel(FileBean fileBean) {
-
-    }
 }

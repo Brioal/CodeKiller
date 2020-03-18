@@ -20,25 +20,26 @@ public class CommonServiceGenerator extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         // 读取工具类列表
-        String jsonList = HttpUtils.doGet("https://api.github.com/repos/Brioal/JavaCommon/contents/templates");
+        String jsonList = HttpUtils.doGet("https://gitee.com/api/v5/repos/brioalishard/JavaCommon/git/trees/23a280832266018170e89eaf7c87f4e550d48870");
         if (jsonList == null) {
             Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
             return;
         }
         JsonParser jsonParser = new JsonParser();
-        JsonArray jsonArray = jsonParser.parse(jsonList).getAsJsonArray();
+        JsonObject jsonObject = jsonParser.parse(jsonList).getAsJsonObject();
+        JsonArray jsonArray = jsonObject.getAsJsonArray("tree");
         List<GitFileBean> list = new ArrayList<>();
         for (int i = 0; i < jsonArray.size(); i++) {
             JsonObject object = jsonArray.get(i).getAsJsonObject();
             // 名称
-            String name = object.get("name").getAsString();
+            String name = object.get("path").getAsString();
             // 类型
             String type =object.get("type").getAsString();
-            if (!type.equals("file")) {
+            if (!type.equals("blob")) {
                 continue;
             }
             // 下载地址
-            String downloadFile = object.get("download_url").getAsString();
+            String downloadFile = object.get("url").getAsString();
             GitFileBean fileBean = new GitFileBean();
             fileBean.setName(name);
             fileBean.setDownload_url(downloadFile);
