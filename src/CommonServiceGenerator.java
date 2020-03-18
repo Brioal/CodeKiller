@@ -11,7 +11,9 @@ import interfaces.OnListChooseListener;
 import util.HttpUtils;
 import util.LocalFileUtil;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 
@@ -64,6 +66,17 @@ public class CommonServiceGenerator extends AnAction {
                 String downLoadUrl = fileBean.getDownload_url();
                 // 获取数据
                 String content = HttpUtils.doGet(downLoadUrl);
+                JsonParser jsonParser = new JsonParser();
+                JsonObject jsonObject = jsonParser.parse(content).getAsJsonObject();
+                content = jsonObject.get("content").getAsString();
+                // 解密
+                Base64.Decoder decoder = Base64.getDecoder();
+                byte[] bytes = decoder.decode(content);
+                try {
+                    content = new String(bytes, "UTF-8");
+                } catch (UnsupportedEncodingException ex) {
+                    ex.printStackTrace();
+                }
                 if (content == null) {
                     Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
                     return false;
