@@ -14,6 +14,7 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.psi.impl.source.PsiClassImpl;
 import com.intellij.psi.search.EverythingGlobalScope;
 import com.intellij.psi.search.PsiShortNamesCache;
+import org.apache.commons.httpclient.HttpClient;
 
 public class Setter extends AnAction {
 
