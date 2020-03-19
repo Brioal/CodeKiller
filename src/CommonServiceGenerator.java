@@ -19,10 +19,35 @@ import java.util.List;
 
 public class CommonServiceGenerator extends AnAction {
 
+    /**
+     * 获取目录的详细地址
+     * @param dirName
+     * @return
+     */
+    private String getTreeUrl(String dirName) {
+        String jsonList = HttpUtils.doGet("https://gitee.com/api/v5/repos/brioalishard/JavaCommon/git/trees/master");
+        JsonParser jsonParser = new JsonParser();
+        JsonObject jsonObject = jsonParser.parse(jsonList).getAsJsonObject();
+        JsonArray jsonArray = jsonObject.getAsJsonArray("tree");
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject bean = jsonArray.get(i).getAsJsonObject();
+            String path = bean.get("path").getAsString();
+            String url = bean.get("url").getAsString();
+            if (path.equals(dirName)) {
+                return url;
+            }
+        }
+        return null;
+    }
     @Override
     public void actionPerformed(AnActionEvent e) {
         // 读取工具类列表
-        String jsonList = HttpUtils.doGet("https://gitee.com/api/v5/repos/brioalishard/JavaCommon/git/trees/23a280832266018170e89eaf7c87f4e550d48870");
+        String url = getTreeUrl("templates");
+        if (url == null) {
+            Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
+            return;
+        }
+        String jsonList = HttpUtils.doGet(url);
         if (jsonList == null) {
             Messages.showDialog("获取数据失败,请检查网络后重试", "错误", new String[]{"好的"}, 0, null);
             return;
