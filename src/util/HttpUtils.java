@@ -1,23 +1,14 @@
 package util;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.intellij.json.JsonParser;
-import com.intellij.json.psi.JsonParserUtil;
+
 import okhttp3.ConnectionSpec;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.apache.commons.httpclient.*;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
-import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.xmlrpc.util.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.Arrays;
 
 public class HttpUtils {
